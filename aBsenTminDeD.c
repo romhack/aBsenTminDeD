@@ -1,5 +1,10 @@
-#include <stdio.h>
+/*
+http://creativecommons.org/publicdomain/zero/1.0/
+To the extent possible under law, Griever has waived all copyright and related or neighboring rights to aBsenTminDeD. 
+This work is published from:  Russian Federation.
+*/
 
+#include <stdio.h>
 typedef unsigned char  u8;
 typedef unsigned short u16;
 #define NES_HDR_SIZE 0x10
