@@ -24,6 +24,8 @@ Text in the game is compressed with standard Huffman coding. The tool can decode
 
 Text then can be encoded with aBsenTminDeD -e rawText.bin. Tool will generate necessary files, which could be inserted any convenient way back in ROM. I use the scheme, described in run.bat, utilizing my insertion tool insertBin.
 
+Tool has poor exception handling and no testing history, don't hesitate to contact me if you find unexpected bahavior.
+
 For license information please see LICENSE.md
 Huffman encoding part is derived from simple example from http://en.nerdaholyc.com/huffman-coding-on-a-string/
 
