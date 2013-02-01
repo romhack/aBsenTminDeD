@@ -118,12 +118,11 @@ int i;
 char * fname = fileName;
 
 	
-	if (binaryFlag)
-		f_out = fopen("rawText.bin", "wb");
 
-	
 	if ((f_in = fopen( fname, "rb")))
 	{
+		if (binaryFlag)
+			f_out = fopen("rawText.bin", "wb");
 		fseek(f_in, TREE_LEFT_OFFS, SEEK_SET);
 		fread( tree_left, sizeof(u8), TREE_SIZE, f_in);
 		fread( tree_right, sizeof(u8), TREE_SIZE, f_in);//right tree right after left
