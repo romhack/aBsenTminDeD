@@ -3,23 +3,26 @@
 PROJ    := aBsenTminDeD
 TARGET  := $(PROJ)
 
-COBJS   := $(PROJ).o
+COBJS   := main.o encode.o pQueue.o decode.o
 
-DEBUG := 0
+DEBUG	:= 0
 
 # --- Build defines ---------------------------------------------------
 
 CC      := gcc
 LD      := gcc
 
-ifeq ($(DEBUG), 0)
-CFLAGS  := -Os -s -Wall
+ifeq ($(DEBUG), 1)
+	CFLAGS  := -O0 -ggdb -Wall
 else
-CFLAGS  := -ggdb -O0 -Wall
+	CFLAGS  := -Os -s -Wall
 endif
 
 
-.PHONY : build clean run
+
+
+
+.PHONY : build clean run debug
 
 # --- Build -----------------------------------------------------------
 # Build process starts here!
@@ -36,11 +39,16 @@ $(COBJS) : %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
+# --- Debug -----------------------------------------------------------
+
+debug: 
+	gdb --silent --args $(TARGET).exe -d "bt.nes" -b
+
 
 # --- Clean -----------------------------------------------------------
 
 clean : 
-
+	@rm -fv $(TARGET).exe
 	@rm -fv *.dll
 	@rm -fv *.wcx
 	@rm -fv *.o
@@ -48,6 +56,6 @@ clean :
 # --- Run -----------------------------------------------------------
 # Run app
 run: 
-	
+	./$(TARGET).exe
 
 #EOF
